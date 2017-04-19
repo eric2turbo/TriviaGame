@@ -10,6 +10,7 @@ var answers = ['a', 'b', 'c', 'd', 'e', 'f'];
 var anskey = [1, 4, 3, 2, 1, 4];
 var qnum = 0;
 var countdown;
+var rightwrong = "";
 
 $(document).ready(function() {
 
@@ -29,6 +30,8 @@ function setQA () {
 				clearInterval(timer);
 				// Message Time has expired
 				$("#countdown").html("<h3>Time has expired</h3>");
+				$("#choices").empty();
+				rightwrong = "TOO SLOW!";
 				setTimeout(resultScreen, 2000);
 				
 			}
@@ -74,9 +77,11 @@ function setQA () {
 			var ans = parseInt($(this).attr("data-choice"));
 		//increment corrects or incorrects
 			if (ans === anskey[qnum]) {
-				corrects++; 
+				corrects++;
+				rightwrong = "CORRECT!"; 
 			} else {
 				incorrects++;
+				rightwrong = "SORRY!";
 			}
 		//stop countdown
 			clearInterval(timer);
@@ -101,7 +106,7 @@ function setQA () {
 
 function resultScreen() {
 	//Use next set of question and choices.
-	$("#countdown").empty();
+	$("#countdown").html("<h3>" + rightwrong + "</h3");
 	$("#choices").html("<p>The correct answer was:</p><p>" + answers[qnum] + "</p>");
 	qnum++;
 	setTimeout(setQA, 5000);	
