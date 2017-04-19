@@ -14,11 +14,14 @@ var countdown;
 $(document).ready(function() {
 
 function setQA () {
+	$("#choices").empty();
+	$("#question").empty();
+	$("#countdown").empty();
 	//if there are unasked questions
 	if (qnum < questions.length) {
-
+		$("#countdown").html("<h3>" + 10 + " seconds to answer</h3>");
 		//initialize timer
-		var countdown = 10;
+		countdown = 10;
 		var timer = setInterval(function() {
 			$("#countdown").html("<h3>" + countdown + " seconds to answer</h3>");
 			countdown--;
@@ -26,7 +29,7 @@ function setQA () {
 				clearInterval(timer);
 				// Message Time has expired
 				$("#countdown").html("<h3>Time has expired</h3>");
-				setTimeout(resultScreen, 3000);
+				setTimeout(resultScreen, 2000);
 				
 			}
 		}, 1000);
@@ -88,12 +91,11 @@ function setQA () {
 		var noresponse = questions.length - incorrects - corrects;
 		$("#question").html("<p>You got " + corrects + " questions correct, "+ incorrects +
 			" questions incorrect, and failed to answer " + noresponse + " questions.</p>");
-		var newStart = $("<button>");
-		newStart.text("Take the quiz again");
-		newStart.addClass("start");
-		$("#countdown").html(newStart);
 		$("#choices").empty();
-		qnum = 0;
+		$("#buttons").show();
+		$("#start").text("Take quiz again");
+
+		
 	}
 };
 
@@ -107,20 +109,16 @@ function resultScreen() {
 
 
 
-// Start button on click to start questions and timer
-$(".start").on("click", function() {
+//Start button on click to start questions and timer
+$("#start").on("click", function() {
 	qnum = 0;
 	corrects = 0;
 	incorrects = 0;
 	setQA();
+	$("#buttons").hide();
 });
 
-$("#startAgain").on("click", function() {
-	qnum = 0;
-	corrects = 0;
-	incorrects = 0;
-	setQA();
-});
+
 
 
 //closes document ready
