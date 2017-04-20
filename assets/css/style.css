@@ -1,0 +1,52 @@
+body {
+	background-color: black;
+	margin: auto;
+	font-family: 'Exo 2', sans-serif;
+}
+
+header {
+	background-color: #0d2664;
+	color: #b1c9bc;
+	height: 150px;
+}
+
+.container {
+	width: 960px;
+	background-color: #d37a76;
+	margin: auto;
+}
+
+#countdown {
+	width: 250px;
+	height: 60px;
+	
+
+}
+
+#question {
+	width: 75%;
+	height: 100px;
+	background-color: black;
+	color: white;
+	text-align: center;
+	
+}
+
+#choices {
+	width: 75%;
+	height: 300px;
+
+}
+
+.answers {
+	width: 65%;
+	height: 70px;
+	color: white;
+	background-color: black;
+	margin: 10px;
+	text-align: center;
+}
+
+.answers:hover {
+	background-color: #38ce68;
+}

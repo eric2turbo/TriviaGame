@@ -1,13 +1,18 @@
 var corrects = 0;
 var incorrects = 0;
 
-var questions = ["Who", "What", "When", "Where", "Why", "How"];
-var choice1 = ['a', 'b1', 'c1', 'd1', 'e', 'f1'];
-var choice2 = ['a2', 'b2', 'c', 'd', 'e2', 'f2'];
-var choice3 = ['a3', 'b3', 'c3', 'd3', 'e3', 'f3'];
-var choice4 = ['a4', 'b', 'c4', 'd4', 'e4', 'f'];
-var answers = ['a', 'b', 'c', 'd', 'e', 'f'];
-var anskey = [1, 4, 3, 2, 1, 4];
+var questions = ["A dodecahedron has how many faces?", 
+				"A triangle with all sides a different length is called", 
+				"A rhombus cannot also be a ", 
+				"The sum of the internal angles of a hexagon is", 
+				"A decagon has how many sides?", 
+				"This shape has the shortest perimeter of all shapes with the same area"];
+var choice1 = ['10', 'isosceles', 'trapezoid', '180 degrees', '8', 'square'];
+var choice2 = ['12', 'scalene', 'kite', '360 degrees', '10', 'pentagon'];
+var choice3 = ['100', 'monotonic', 'square', '720 degrees', '12', 'circle'];
+var choice4 = ['1000', 'equilateral', 'parallelogram', '1080 degrees', '52', 'octogon'];
+var answers = ['12', 'scalene', 'trapezoid', '720 degrees', '10', 'circle'];
+var anskey = [4, 2, 1, 3, 2, 3];
 var qnum = 0;
 var countdown;
 var rightwrong = "";
@@ -30,6 +35,7 @@ function setQA () {
 				clearInterval(timer);
 				// Message Time has expired
 				$("#countdown").html("<h3>Time has expired</h3>");
+				// Prevent picking after time is up
 				$("#choices").empty();
 				rightwrong = "TOO SLOW!";
 				setTimeout(resultScreen, 2000);
