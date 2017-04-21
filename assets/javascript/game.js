@@ -37,7 +37,7 @@ function setQA () {
 				$("#countdown").html("<h3>Time has expired</h3>");
 				// Prevent picking after time is up
 				$("#choices").empty();
-				rightwrong = "TOO SLOW!";
+				rightwrong = "TIME'S UP!";
 				setTimeout(resultScreen, 2000);
 				
 			}
@@ -113,7 +113,7 @@ function setQA () {
 function resultScreen() {
 	//Use next set of question and choices.
 	$("#countdown").html("<h3>" + rightwrong + "</h3");
-	$("#choices").html("<p>The correct answer was:</p><p>" + answers[qnum] + "</p>");
+	$("#choices").html("<h3>The correct answer was:</p><p>" + answers[qnum] + "</h3>");
 	qnum++;
 	setTimeout(setQA, 5000);	
 };
